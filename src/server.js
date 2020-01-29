@@ -10,11 +10,11 @@ import { GraphQLServer } from 'graphql-yoga'
 
 const typeDefs = `
     type Query {
-        id: ID!
-        name: String!
-        age: Int!
-        employed: Boolean!
-        gpa: Float
+        title: String!
+        price: Float!
+        releaseYear: Int
+        rating: Float
+        inStock: Boolean!
     }
 `
 
@@ -23,21 +23,21 @@ const typeDefs = `
 // In general, the structure will mirror the schema.
 const resolvers = {
     Query: {
-        id() {
-            return "abc123"
-        },
-        name() {
-            return "Benjamin"
-        }, 
-        age() {
-            return 28
-        }, 
-        employed() {
-            return true
-        }, 
-        gpa() {
-            return null
-        }
+      title() {
+          return "Mac Pro"
+      }, 
+      price() {
+          return 30000
+      }, 
+      releaseYear() {
+          return 2020
+      }, 
+      rating() {
+          return null
+      }, 
+      inStock() {
+          return true
+      }
     }
 }
 
