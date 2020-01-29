@@ -1,10 +1,20 @@
 import { GraphQLServer } from 'graphql-yoga'
 
+// Scalar types - String, Boolean, Int, Float, ID 
+// Non scalar types - arrays, objects
+
 // Type definitions aka (schema) all the operations that 
 // can be performed on our API
+
+// The exclamation mark means it cannot return null.
+
 const typeDefs = `
     type Query {
-        hello: String!
+        id: ID!
+        name: String!
+        age: Int!
+        employed: Boolean!
+        gpa: Float
     }
 `
 
@@ -13,8 +23,20 @@ const typeDefs = `
 // In general, the structure will mirror the schema.
 const resolvers = {
     Query: {
-        hello() {
-            return "This is my first query"
+        id() {
+            return "abc123"
+        },
+        name() {
+            return "Benjamin"
+        }, 
+        age() {
+            return 28
+        }, 
+        employed() {
+            return true
+        }, 
+        gpa() {
+            return null
         }
     }
 }
